@@ -1,13 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\.angular",
-    "\\src",
-    "\\src\\app",
-    "\\src\\app\\counter",
-    "\\src\\app\\fetch-data",
-    "\\src\\app\\home",
-    "\\src\\app\\nav-bar"
+    "\\.angular"
   ],
+  "SelectedNode": "\\.angular",
   "PreviewInSolutionExplorer": false
 }

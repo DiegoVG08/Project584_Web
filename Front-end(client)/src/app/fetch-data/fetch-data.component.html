@@ -1,1 +1,22 @@
-<p>inventory list will be display here!</p>
+<h1 id="tableLabel">Cars avaliable to purchase </h1>
+
+
+<p *ngIf="!forecasts?.length"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="forecasts.length">
+  <thead>
+    <tr>
+      <th>Make</th>
+      <th>Model</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let forecast of forecasts">
+     <td>{{ forecast.data }}</td>
+      <td>{{ forecast.temperatureC }}</td>
+      <td>{{ forecast.temperatureF }}</td>
+      <td>{{ forecast.summary }}</td>
+    </tr>
+  </tbody>
+</table>

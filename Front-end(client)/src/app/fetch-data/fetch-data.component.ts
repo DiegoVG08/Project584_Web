@@ -7,11 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./fetch-data.component.css']
 })
 export class FetchDataComponent {
+  //update this to Project name 
+  //alternative way on using new implemantation 
 public forecasts: WeatherForecast[] = [];
-baseUrl = "https://localhost:7228";
-//alternative way on using new implemantation 
+baseUrl = "https://localhost:7228/WeatherForecast";
+
 constructor(http: HttpClient){
-http.get<WeatherForecast[]>(this.baseUrl + 'weatherforecast').subscribe(result =>
+http.get<WeatherForecast[]>(this.baseUrl).subscribe(result =>
   this.forecasts = result);
 } error = console.error();
 }
@@ -22,6 +24,6 @@ interface WeatherForecast {
   data: string
   temperatureC: number;
   temperatureF: number;
-  summary: string;
+  summary: number;
 
 }
