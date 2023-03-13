@@ -9,21 +9,23 @@ import { Component } from '@angular/core';
 export class FetchDataComponent {
   //update this to Project name 
   //alternative way on using new implemantation 
-public forecasts: WeatherForecast[] = [];
-baseUrl = "https://localhost:7228/WeatherForecast";
+public DealerInventory: Dealer[] = [];
+baseUrl = 'https://localhost:7173/api/Dealer';
 
 constructor(http: HttpClient){
-http.get<WeatherForecast[]>(this.baseUrl).subscribe(result =>
-  this.forecasts = result);
+http.get<Dealer[]>(this.baseUrl).subscribe(result =>
+  this.DealerInventory = result);
 } error = console.error();
 }
 
 
 
-interface WeatherForecast {
-  data: string
-  temperatureC: number;
-  temperatureF: number;
-  summary: number;
+interface Dealer {
+ 
+  Price: number;
+   Make: string;
+  Model: string;
+ 
+  
 
 }
