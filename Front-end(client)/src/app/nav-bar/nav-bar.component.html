@@ -4,9 +4,17 @@
         <mat-icon>home</mat-icon>
       </button>
 
-      <a mat-flat-button color="primary" [routerLink]="['/fetch-data']">Inventory </a>
+      <a mat-flat-button color="primary" [routerLink]="['/inventory']">Inventory </a>
       <a mat-flat-button color="primary" [routerLink]="['/contact']">Contact </a>
       <a mat-flat-button color="primary" [routerLink]="['/about']">about us</a>
+      <span class="separator"></span>
+<a mat-flat-button color="primary" [routerLink]="['/login']">
+  Login
+</a>
+<a *ngIf="isLoggedIn" mat-flat-button color="primary"
+    (click)="onLogout()">
+  Logout
+</a>
       
     </mat-toolbar>
 </header>

@@ -1,0 +1,41 @@
+<h1>Inventory</h1>
+<p>Here's a list of vehicles: feel free to look at all the options avalible.</p>
+<p *ngIf="!InventoryComponent"><em>Loading...</em></p>
+<table mat-table [dataSource]="inventory" class="mat-elevation-z8" *ngIf="inventory && inventory.data.length > 0">
+  <!-- Id Column -->
+  <ng-container matColumnDef="vehicleTypeID">
+    <th mat-header-cell *matHeaderCellDef>ID</th>
+    <td mat-cell *matCellDef="let InventoryComponent">{{InventoryComponent.vehicleTypeID}}</td>
+  </ng-container>
+  <!-- Name Column -->
+  <ng-container matColumnDef="make">
+    <th mat-header-cell *matHeaderCellDef>Make</th>
+    <td mat-cell *matCellDef="let InventoryComponent">{{InventoryComponent.make}}</td>
+  </ng-container>
+  <!-- chapter Column -->
+  <ng-container matColumnDef="model">
+    <th mat-header-cell *matHeaderCellDef>Model</th>
+    <td mat-cell *matCellDef="let InventoryComponent">{{InventoryComponent.model}}</td>
+  </ng-container>
+  <!-- Year Column -->
+  <ng-container matColumnDef="year">
+    <th mat-header-cell *matHeaderCellDef>Year</th>
+    <td mat-cell *matCellDef="let InventoryComponent">{{InventoryComponent.year}}</td>
+  </ng-container>
+   <!-- Dealership Id Column -->
+   <ng-container matColumnDef="dealershipID">
+    <th mat-header-cell *matHeaderCellDef>DealershipId</th>
+    <td mat-cell *matCellDef="let InventoryComponent">{{InventoryComponent.dealershipID}}</td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<!-- Pagination directive -->
+<mat-paginator *ngIf="InventoryComponent"
+    [length]="InventoryComponent.length"
+    [pageSize]="10"
+    [pageSizeOptions]="[10, 20, 50]"
+    (page)="onPageChange($event)"
+    showFirstLastButtons>
+</mat-paginator>
