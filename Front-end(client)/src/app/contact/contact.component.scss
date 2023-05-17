@@ -1,20 +1,15 @@
-
 table.table {
     width: 100%;
     margin-bottom: 1rem;
-    color: #aaacad;
+    color: #212529;
     vertical-align: top;
     border-color: #dee2e6;
     &.table-striped > tbody > tr:nth-of-type(even) {
       background-color: rgba(0, 0, 0, 0.05);
-      color: #828385;
+      color: #212529;
     }
-    .btn-add {
-      float: right;
-  }
     &.table-hover > tbody > tr:hover {
-      background-color: rgba(219, 215, 215, 0.836);
-      color: #c5c8cb;
+      background-color: rgba(0, 0, 0, 0.075);
+      color: #212529;
     }
-    
   }

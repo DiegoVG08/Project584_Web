@@ -3,16 +3,10 @@ import { HttpClient } from '@angular/common/http';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { enviroment } from '../enviroment/enviroment';
+import { inventory } from './inventory';
 
 
-export interface InventoryComponent {
-  vehicleTypeID: number;
-    make: string;
-    model: string;
-    year: number;
-    dealershipID: number
 
-}
 @Component({
   selector: 'app-inventory',
   templateUrl: './inventory.component.html',
@@ -20,18 +14,18 @@ export interface InventoryComponent {
 })
 
 export class inventoryComponent implements OnInit {
-  public displayedColumns: string[] = ['vehicleTypeID', 'make', 'model', 'year' , 'dealershipID'];
-  public inventory!: MatTableDataSource<InventoryComponent>;
+  public displayedColumns: string[] = ['vehicleTypeID', 'make', 'model', 'year'];
+  public inventory!: MatTableDataSource<inventory>;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-  public InventoryComponent: InventoryComponent [] = [];
+  public InventoryComponent: inventory [] = [];
   baseurl = 'https://localhost:7173/api/VehicleType';
   
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.http.get<InventoryComponent[]>(this.baseurl).subscribe(result => {
+    this.http.get<inventory[]>(this.baseurl).subscribe(result => {
       this.InventoryComponent = result;
-      this.inventory = new MatTableDataSource<InventoryComponent>(result);
+      this.inventory = new MatTableDataSource<inventory>(result);
       this.inventory.paginator = this.paginator;
     }, error => console.error(error));
   }

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {  HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './auth/auth.interceptor';
-//import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
@@ -19,6 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './auth/login.component';
 import { AngularMaterialModule } from './angular-material.module';
 import { inventoryComponent } from './inventory/inventory.component';
+import { ContactComponent } from './contact/contact.components';
+import { InventoryEditComponent } from './inventory/inventory-edit.component';
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import { inventoryComponent } from './inventory/inventory.component';
     NavBarComponent,
     HomeComponent,
    inventoryComponent,
+   ContactComponent,
    LoginComponent,
+   InventoryEditComponent,
    
    
     
@@ -39,9 +43,10 @@ import { inventoryComponent } from './inventory/inventory.component';
     BrowserAnimationsModule,
     MatToolbarModule,
     MatIconModule,
+    ReactiveFormsModule,
     MatButtonModule,
     HttpClientModule,
-
+FormsModule,
  AngularMaterialModule
 
   ],

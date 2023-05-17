@@ -1,0 +1,44 @@
+<div class="inventory-edit">
+    <h1>{{title}}</h1>
+    <p *ngIf="this.id && !EditInventory"><em>Loading…</em></p>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <!-- make -->
+      <mat-form-field>
+        <mat-label>Make:</mat-label>
+        <input matInput formControlName="make" required
+               placeholder="Insert Vehicle Make">
+               <mat-error *ngIf="this.form.controls['make'].errors?.['required']">
+                Vehicle Make is required.
+              </mat-error>
+      </mat-form-field>
+      <!-- model -->
+      <mat-form-field>
+        <mat-label>Model:</mat-label>
+        <input matInput formControlName="model" required
+               placeholder="Insert model">
+               <mat-error *ngIf="this.form.controls['model'].errors?.['required']">
+                Vehicle Model is required.
+              </mat-error>
+      </mat-form-field>
+      <!-- year -->
+      <mat-form-field>
+        <mat-label>Year:</mat-label>
+        <input matInput formControlName="year" required
+               placeholder="Insert year">
+               <mat-error *ngIf="this.form.controls['year'].errors?.['required']">
+                Vehicle Year is required.
+              </mat-error>
+      </mat-form-field>
+      <div>
+        <button mat-flat-button color="primary"
+              type="submit"
+              [disabled]="!form.valid">
+        {{ this.id ? "Save" : "Create" }}
+      </button>
+        <button mat-flat-button color="secondary"
+          [routerLink]="['/inventory']">
+          Cancel
+        </button>
+      </div>
+    </form> 
+  </div>

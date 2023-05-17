@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './about/about.component';
-
+import { InventoryEditComponent } from './inventory/inventory-edit.component';
 import { AuthGuard } from './auth/auth.guard';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.components';
@@ -12,9 +12,12 @@ import { LoginComponent } from './auth/login.component';
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
   { path: 'about', component: AboutComponent },
-  { path: 'inventory', component: inventoryComponent,canActivate: [AuthGuard]},
+  { path: 'inventory', component: inventoryComponent ,canActivate: [AuthGuard]},
+  {path: 'EditInventory/:id',component:InventoryEditComponent,canActivate: [AuthGuard]},
+  { path: 'NewInventory', component: InventoryEditComponent ,canActivate: [AuthGuard]},
   {path: 'contact', component : ContactComponent,canActivate: [AuthGuard]},
   { path: 'login', component: LoginComponent }
+
 ];
 
 @NgModule({
